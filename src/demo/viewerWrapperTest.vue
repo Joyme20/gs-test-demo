@@ -7,9 +7,9 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 // import GsHeader from "@/components/gs-header.vue";
-import { Options } from "../../../bimAir/src/gsDevFx/options";
+// import { Options } from "../../../bimAir/src/gsDevFx/options";
 
-import BimAir, { Viewer } from "../../../bimAir/src/index";
+import BimAir, { Viewer } from "gs-bim-air";
 
 Vue.use(BimAir.ViewerWrapper);
 
@@ -20,7 +20,7 @@ Vue.use(BimAir.ViewerWrapper);
   },
 })
 export default class Index extends Vue {
-  options: Options = {
+  options = {
     elementId: "viewer",
     background: "linear-gradient(#e3fcfc, #f6ffff)",
     isShowLoading: true,

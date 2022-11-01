@@ -1,7 +1,7 @@
 import { Component, Vue } from "vue-property-decorator";
-import { Options } from "../../../packages/bimAir/src/gsDevFx/options";
+// import { Options } from "../../../packages/bimAir/src/gsDevFx/options";
 
-import BimAir, { Viewer } from "../../../packages/bimAir/src/index";
+import BimAir, { Viewer } from "gs-bim-air";
 
 import { PathType } from "gs-bim-air";
 
@@ -30,7 +30,7 @@ export default class Index extends Vue {
   components = resComponents;
   // currentComponent = "viewerWrapper";
   currentComponent = null;
-  options: Options = {
+  options = {
     // viewerType: "model",
     elementId: "viewer",
     // id: this.$route.query.modelId as string,
@@ -80,13 +80,13 @@ export default class Index extends Vue {
           },
         },
         tabs: [
-          {
-            name: "结构树222",
-            component: () =>
-              import(
-                "../../../packages/bimAir/src/viewerWrapper/panels/structureTree/panes/structureTree.vue"
-              ),
-          },
+          // {
+          //   name: "结构树222",
+          //   component: () =>
+          //     import(
+          //       "../../../packages/bimAir/src/viewerWrapper/panels/structureTree/panes/structureTree.vue"
+          //     ),
+          // },
         ],
       },
       bottomToolbarButtons: [
@@ -116,7 +116,7 @@ export default class Index extends Vue {
     },
   };
 
-  options2: Options = {
+  options2 = {
     // viewerType: "model",
     elementId: "viewer2",
     // id: this.$route.query.modelId as string,

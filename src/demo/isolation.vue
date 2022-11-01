@@ -9,7 +9,7 @@
 <script>
 /* eslint-disable */
 import Vue from "vue";
-import BimAir, { Viewer } from "../../../bimAir/src/index";
+import BimAir, { Viewer } from "gs-bim-air";
 
 Vue.use(BimAir.ViewerWrapper);
 
@@ -84,8 +84,13 @@ export default {
           true
         )
         .then((lightModels) => {
+          console.log(lightModels);
           // viewer.instanceObjectSegment.renderingOptions.LogarithmicDepthBuffer = true;
           viewer.fitWorld();
+
+          // let isolationMaterial = new BimAir.Material(viewer, "isolation");
+
+          viewer.isolationManager.material.setColor(255, 0, 0);
 
           let material2 = new BimAir.Material(viewer, "test2");
           material2.setColor(127, 250, 0, 1);

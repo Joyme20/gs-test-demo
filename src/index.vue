@@ -9,7 +9,7 @@
           width="auto"
       /> -->
       <span class="model-name">测试</span>
-      <el-divider direction="vertical" />
+      <!-- <el-divider direction="vertical" /> -->
       <span class="model-name">{{ modelName }}</span>
 
       <!-- <el-button @click="addHoleClick">test</el-button> -->
@@ -38,9 +38,7 @@
 
 <script lang="ts" src="./index.ts"></script>
 
-<style scoped lang="scss">
-@import "src/assets/scss/site.scss";
-
+<style scoped>
 .modelEdit {
   display: flex;
   flex-direction: column;
@@ -49,31 +47,10 @@
   overflow: hidden;
 }
 
-.header {
-  padding: 0px 20px;
-  background-color: $gs-primary;
-  height: 50px;
-  display: flex;
-  color: white;
-  align-items: center;
-
-  .text {
-    display: inline-block;
-    color: #fff;
-    margin-left: 25px;
-  }
-
-  .model-name {
-    font-weight: bold;
-    display: flex;
-    justify-items: center;
-  }
-}
-
 .demo-list {
   width: 150px;
-  .demo-item {
-    cursor: pointer;
-  }
+}
+.demo-item {
+  cursor: pointer;
 }
 </style>
