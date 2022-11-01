@@ -1,0 +1,107 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "outFile": "./types/index.js",
+    // "module": "amd",
+    "target": "es5",
+    "module": "amd",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "declaration": true, // 是否生成声明文件
+    // "declarationDir": "./types", // 声明文件打包的位置
+    "declarationMap": true, // 是否生成声明文件map文件（便于调试）
+    // 移除注释
+    "removeComments": true,
+    // 允许编译javascript文件
+    // "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "webpack-env",
+      "node"
+    ],
+    "typeRoots": [
+      // add path to @types
+      "node_modules/@types"
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "tslib": [
+        "node_modules/tslib/tslib.d.ts"
+      ],
+      "gs-longan": [
+        "../longan/src"
+      ], // 如果要使用index.tsx的，需要配置这个
+      "gs-longan/*": [
+        "../longan/src/*"
+      ],
+      "gs-bim-air": [
+        "../bimAir/src"
+      ], // 如果要使用index.tsx的，需要配置这个
+      "gs-bim-air/*": [
+        "../bimAir/src/*"
+      ],
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost",
+      "es2015",
+      "es2015.iterable",
+      "es2015.collection",
+      "es2015.symbol.wellknown",
+      "es2015.promise",
+      "es2015.symbol",
+      "es2015.generator"
+    ],
+    "strictFunctionTypes": false,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "downlevelIteration": true
+  },
+  "include": [
+    "src/*.ts",
+    "src/*.tsx",
+    "src/*.vue",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "packages/*.ts",
+    "packages/*.tsx",
+    "packages/*.vue",
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    "packages/**/*.vue",
+    "src/workers/test.worker.ts",
+    "src/shims-scss.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "output",
+    "public/redist/*.js",
+    "public/redist/*.ts"
+  ],
+  "types": [
+    "lodash",
+    "src",
+    "src/shims-scss.d.ts",
+    "src/shims-tsx.d.ts",
+    "src/shims-vue.d.ts",
+    "packages",
+    "packages/bimAir/src/",
+    "packages/bimAir/src/shims-scss.d.ts",
+    "packages/bimAir/src/shims-tsx.d.ts",
+    "packages/bimAir/src/shims-vue.d.ts",
+  ]
+  //自动识别dTs文件夹里的.d.ts文件
+  //  "strictFunctionTypes": false
+}

@@ -1,0 +1,17 @@
+{
+  "name": "gs-bim-air",
+  "version": "0.0.30.31",
+  "description": "广州图石科技有限公司发布的基于gs-longan的图形显示控件",
+  "main": "lib/BimAir.umd.min.js",
+  "types": "types/index.d.ts",
+  "author": "广州图石科技有限公司",
+  "license": "ISC",
+  "scripts": {
+    "publish": "npm publish ",
+    "publishBeta": "npm publish --tag=beta",
+    "publishBeta2": "npm publish --tag=beta2",
+    "typedoc": "typedoc --plugin typedoc-plugin-markdown"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
