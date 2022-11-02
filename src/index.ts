@@ -171,8 +171,8 @@ export default class Index extends Vue {
   }
 
   mounted() {
-    // this.currentComponent = this.components["twoViewer"];
-    this.currentComponent = this.components["isolation"];
+    this.currentComponent = this.components["双屏动画进度模拟"];
+    // this.currentComponent = this.components["isolation"];
 
     return;
     BimAir.Loader({
