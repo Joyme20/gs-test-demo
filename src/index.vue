@@ -8,9 +8,9 @@
           height="25"
           width="auto"
       /> -->
-      <span class="model-name">测试</span>
+      <!-- <span class="model-name">测试</span> -->
       <!-- <el-divider direction="vertical" /> -->
-      <span class="model-name">{{ modelName }}</span>
+      <!-- <span class="model-name">{{ modelName }}</span> -->
 
       <!-- <el-button @click="addHoleClick">test</el-button> -->
     </div>

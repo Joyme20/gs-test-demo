@@ -60,6 +60,8 @@ export default {
   data: () => {
     return {
       isShow: true,
+      viewer: null,
+      viewer2: null,
     };
   },
 
@@ -195,34 +197,8 @@ export default {
         }, 8500);
       });
 
-      // setTimeout(() => {
-      //   viewer2.dispose();
-      //   this.isShow = false;
-      //   setTimeout(() => {
-      //     viewer.updateSize();
-      //   }, 0);
-      // }, 5000);
-
-      // let defaultFont =
-      //   "getComputedSylte" in window
-      //     ? getComputedStyle(document.documentElement)["font-family"]
-      //     : document.documentElement.currentStyle["font-family"];
-
-      // // let f = new FontFace("Avenir");
-      // console.log("ffffffffffff", defaultFont);
-
-      // let fontkit = require("fontkit");
-
-      // // open a font synchronously
-      // let font = fontkit.openSync("./font/精简版微软雅黑TTF.ttf");
-
-      // // layout a string, using default shaping features.
-      // // returns a GlyphRun, describing glyphs and positions.
-      // let run = font.layout("hello world!");
-
-      // // get an SVG path for a glyph
-      // let svg = run.glyphs[0].path;
-      // console.log("svg-----------", svg);
+      this.viewer = viewer;
+      this.viewer2 = viewer2;
     });
   },
   beforeDestroy() {

@@ -139,32 +139,9 @@ export default class Index extends Vue {
 
   componentName = null;
 
-  addHoleClick(viewer: Viewer) {
-    // this.axios.get("test/钻孔.json").then((data: any) => {
-    let data = [
-      {
-        id: "zk_58_117",
-        code: "ZK08",
-        holeDepth: 211,
-        X: 159.292,
-        Y: 69.648,
-        Z: 3022.696,
-        AZ: 315,
-        AN: -45,
-        thickness: 2.3,
-        startCalibrer: 3,
-        endCalibrer: 1.5,
-      },
-    ];
-    viewer.addBoreholes("钻孔组模型", data, [255, 0, 0, 0.5]);
-    // });
-  }
 
-  addAditClick(viewer: Viewer) {
-    this.axios.get("test/平硐.json").then((data: any) => {
-      viewer.addAdits("平硐组模型", data, [0, 0, 255, 0.5]);
-    });
-  }
+
+  
 
   demoClick(component) {
     this.currentComponent = component;
