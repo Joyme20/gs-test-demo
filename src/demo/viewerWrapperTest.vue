@@ -51,8 +51,8 @@ export default class Index extends Vue {
     });
   }
 
-  beforeDestory() {
-    this.viewer.dispose();
+  beforeDestroy() {
+    this.viewer.process.dispose();
   }
 }
 </script>

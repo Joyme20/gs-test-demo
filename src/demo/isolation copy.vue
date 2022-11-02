@@ -70,7 +70,7 @@ export default {
   data: () => {
     return {
       isShow: true,
-      viewer
+      viewer,
     };
   },
 
@@ -137,7 +137,7 @@ export default {
           // viewer.setComponentsColor([id]);
           viewer.updateDisplay();
         });
-        this.viewer = viewer
+      this.viewer = viewer;
 
       viewer2
         .loadModels(
@@ -163,8 +163,8 @@ export default {
     });
   },
 
-  beforeDestory() {
-    this.viewer.dispose();
+  beforeDestroy() {
+    this.viewer.process.dispose();
   },
 };
 </script>

@@ -101,8 +101,8 @@ export default {
     });
   },
 
-  beforeDestory() {
-    this.viewer.dispose();
+  beforeDestroy() {
+    this.viewer.process.dispose();
   },
 };
 </script>
