@@ -9,7 +9,6 @@
 import { Component, Vue } from "vue-property-decorator";
 import BimAir, { Options, Viewer } from "gs-bim-air";
 import config from "../config";
-import { Camera } from "gs-bim-air/typedocExport";
 
 Vue.use(BimAir.ViewerWrapper);
 
@@ -21,6 +20,8 @@ export default class Index extends Vue {
     elementId: "viewer",
     background: "linear-gradient(#e3fcfc, #f6ffff)",
     isShowLoading: true,
+    modelService: "https://8.134.85.254:9031/api",
+    fileService: "https://8.134.85.254:9041/api",
   };
 
   viewer: Viewer;

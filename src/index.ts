@@ -139,16 +139,13 @@ export default class Index extends Vue {
 
   componentName = null;
 
-
-
-  
-
   demoClick(component) {
     this.currentComponent = component;
   }
 
   mounted() {
-    this.currentComponent = this.components["双屏动画进度模拟"];
+    // this.currentComponent = this.components["设置视角test"];
+    this.currentComponent = this.components["相机设置视角"];
     // this.currentComponent = this.components["isolation"];
 
     return;
