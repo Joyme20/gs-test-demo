@@ -35,8 +35,8 @@ export default class Index extends Vue {
         .loadModels(
           [
             {
-              id: this.$route.query.modelId as string,
-              version: Number(this.$route.query.version),
+              id: MODEL_ID,
+              version: 1,
             },
           ],
           true,
