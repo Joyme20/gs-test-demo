@@ -13,18 +13,15 @@ import Vue from "vue";
 // import BimAir from "../public/js/ViewerWrapper.umd.js";
 // import "../public/js/ViewerWrapper.css";
 
-
 import BimAir from "gs-bim-air";
-import "gs-bim-air/lib/BimAir.css";
+// import "gs-bim-air/lib/BimAir.css";;
 // eslint-disable-next-line
 Vue.use(BimAir.ViewerWrapper);
 
 export default {
   name: "App",
   components: {},
-  methods: {
-
-  },
+  methods: {},
   data: () => {
     return {
       isShow: true,
@@ -56,7 +53,7 @@ export default {
     BimAir.Loader({ isShareArrayBuffer: true }).then(() => {
       let viewer = new BimAir.Viewer(options);
       // let viewer2 = new BimAir.Viewer(options2);
-      ////////////////////////  med  //////////////////////// 
+      ////////////////////////  med  ////////////////////////
       let model1 = "63086634b15c844749906303";
       let model2 = "6308666eb15c844749906365";
       let model3 = "63086a4cb15c844749906525";
@@ -66,17 +63,14 @@ export default {
 
       // let id = "62ba4f263a591513fe17d896";
       // let model1 = "62ba4f503a591513fe17d930";   // 4肘管模型Id
-      // let model2 = "62ba4f473a591513fe17d919";   
+      // let model2 = "62ba4f473a591513fe17d919";
 
-
-      ////////////////////////  DSX  //////////////////////// 
+      ////////////////////////  DSX  ////////////////////////
       // let model1 = "6308736eb15c8447499068c4";  // 地质体
       // let model2 = "630873b7b15c844749906a8b";  // 地形面
       // let model3 = "630873c4b15c844749906ad9";  // 总开挖
       // let model4 = "630873d2b15c844749906ae6";  // 厂房开挖面
       // let model5 = "630873dbb15c844749906aee";  // 面板坝-枢纽区
-
-
 
       viewer.loadModels([model2, model3, model4], true).then((lightModels) => {
         ////////////////////  med  ////////////////////
@@ -93,48 +87,48 @@ export default {
         // viewer.camera.up = new Float64Array([0.084, 0.079, 0.993]);
         // viewer.camera.setField(554.132, 554.132);
 
-
         ////////////////////  DSX  ////////////////////
         // viewer.camera.position = [4534.13536450025, -501.29304410271106, 6326.3834468861605];
         // viewer.camera.target = [-2054.30631617336, 1352.5992892225586, -1919.8497340300992];
         // viewer.camera.up = [-0.7407187799518578, 0.2084275666168787, 0.6386655137869885];
         // viewer.camera.setField(10715.64557905293, 10715.64557905293);
 
-
-        let labelList = [ {
-          properties: "标记点",
-          position: [380222.688, 39141.488, 3240.095]
-        }];
+        let labelList = [
+          {
+            properties: "标记点",
+            position: [380222.688, 39141.488, 3240.095],
+          },
+        ];
         let labelArr = [];
         let bimAir = document.getElementsByClassName("viewer-wrp")[0];
         labelList.forEach((item, index) => {
           let div = document.createElement("div");
-          let text = document.createTextNode('location'); 
+          let text = document.createTextNode("location");
           div.appendChild(text);
           div.style.position = "absolute";
           div.style.width = "70px";
           div.style.height = "20px";
           div.style.background = "#00FF00";
           // div.style.padding = "5px";
-          div.style.border="medium solid #000000";  // 边框
+          div.style.border = "medium solid #000000"; // 边框
           // div.style.opacity = 0.5;  // 透明度
           div.addEventListener("click", () => {
-            alert(labelList[index].properties)
-          })
+            alert(labelList[index].properties);
+          });
           bimAir.appendChild(div);
           labelArr.push(div);
-        })
+        });
         console.log(bimAir);
 
-        let positionList = labelList.map(item => item.position);
+        let positionList = labelList.map((item) => item.position);
         console.log(positionList);
 
-        function updateLabels() {  
+        function updateLabels() {
           let pixelPos = viewer.worldPointToPixelPoint(positionList);
           labelArr.forEach((div, i) => {
             labelArr[i].style.left = pixelPos[i][0] + "px";
             labelArr[i].style.top = pixelPos[i][1] + "px";
-          })
+          });
         }
 
         // 在视图刷新事件里添加更新标签的方法
@@ -143,29 +137,21 @@ export default {
         // viewer.sceneCameraChanged.remove(updateLabels)
 
         //右键按下时禁用标签方法
-        viewer.onLButtonDown.add(() => (
-          labelDisable
-        ));
+        viewer.onLButtonDown.add(() => labelDisable);
         function labelDisable(sender, event) {
           labelArr.forEach((div, i) => {
             labelArr[i].style.pointerEvents = "none";
           });
         }
         //右键放开时启用标签方法
-        viewer.onLButtonUp.add(() => (
-          labelEnable
-        ));
+        viewer.onLButtonUp.add(() => labelEnable);
         function labelEnable(sender, event) {
           labelArr.forEach((div, i) => {
             labelArr[i].style.pointerEvents = "auto";
           });
         }
         viewer.updateDisplay();
-
-
-
       });
-
     });
   },
 };

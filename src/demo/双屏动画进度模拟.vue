@@ -14,7 +14,7 @@ import Vue from "vue";
 // import "../public/js/ViewerWrapper.css";
 
 import BimAir from "gs-bim-air";
-// import "gs-bim-air/lib/BimAir.css";
+// // import "gs-bim-air/lib/BimAir.css";;
 // eslint-disable-next-line
 Vue.use(BimAir.ViewerWrapper);
 

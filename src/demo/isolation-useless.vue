@@ -22,7 +22,7 @@ import Vue from "vue";
 // import "../public/js/ViewerWrapper.css";
 
 // import BimAir from "gs-bim-air";
-// import "gs-bim-air/lib/BimAir.css";
+// // import "gs-bim-air/lib/BimAir.css";;
 // import { ftruncate } from "fs";
 // eslint-disable-next-line
 Vue.use(BimAir.ViewerWrapper);

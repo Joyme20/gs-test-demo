@@ -13,18 +13,15 @@ import Vue from "vue";
 // import BimAir from "../public/js/ViewerWrapper.umd.js";
 // import "../public/js/ViewerWrapper.css";
 
-
 import BimAir from "gs-bim-air";
-import "gs-bim-air/lib/BimAir.css";
+// import "gs-bim-air/lib/BimAir.css";;
 // eslint-disable-next-line
 Vue.use(BimAir.ViewerWrapper);
 
 export default {
   name: "App",
   components: {},
-  methods: {
-
-  },
+  methods: {},
   data: () => {
     return {
       isShow: true,
@@ -58,22 +55,25 @@ export default {
       let viewer2 = new BimAir.Viewer(options2);
       let id = "62ba4f263a591513fe17d896";
       let model1 = "62ba4f503a591513fe17d930"; // 4肘管模型Id
-      let model2 = "62ba4f473a591513fe17d919";   //  4锥管模型Id
-      let model3 = "62ba4f5b3a591513fe17d93d";   // 4蜗壳
-      let model4 = "62ba4f393a591513fe17d8fe";   // 4座环
-      let model5 = "62ba4f5f3a591513fe17d941";   // 4机坑里衬
-      let m6 = "62c2858503225b3400faa7cc";  // 3座环
-      let m7 = "62c2857e03225b3400faa7a9";  // 3肘管
-      let m8 = "62c2857b03225b3400faa798";  // 3#蜗壳FA
-      let m9 = "62c2856203225b3400faa74e";  // 2座环
+      let model2 = "62ba4f473a591513fe17d919"; //  4锥管模型Id
+      let model3 = "62ba4f5b3a591513fe17d93d"; // 4蜗壳
+      let model4 = "62ba4f393a591513fe17d8fe"; // 4座环
+      let model5 = "62ba4f5f3a591513fe17d941"; // 4机坑里衬
+      let m6 = "62c2858503225b3400faa7cc"; // 3座环
+      let m7 = "62c2857e03225b3400faa7a9"; // 3肘管
+      let m8 = "62c2857b03225b3400faa798"; // 3#蜗壳FA
+      let m9 = "62c2856203225b3400faa74e"; // 2座环
       let house = "62cbcfe7525bed6af87e20b6";
-
 
       viewer.loadModels([id, model1], true).then((lightModels) => {
         //////////////////// about scene  ////////////////////
         setTimeout((scene) => {
-          viewer.camera.position = new Float64Array([379633.85, 39084.71, 3129.943]);
-          viewer.camera.target = new Float64Array([380036.613, 39459.857, 3066.088]);
+          viewer.camera.position = new Float64Array([
+            379633.85, 39084.71, 3129.943,
+          ]);
+          viewer.camera.target = new Float64Array([
+            380036.613, 39459.857, 3066.088,
+          ]);
           viewer.camera.up = new Float64Array([0.084, 0.079, 0.993]);
           viewer.camera.setField(554.132, 554.132);
           viewer.fitWorld();
@@ -84,8 +84,7 @@ export default {
         // let moveObjId1 = "QMD+M+4G+HYD+XDRA01+EL002";
         // let moveObjId2 = "QMD+M+4G+HYD+XDRA01+EL003";
 
-
-        let material = new BimAir.Material(viewer, 'test');
+        let material = new BimAir.Material(viewer, "test");
         material.setColor(127, 250, 0, 1);
         lightModels[1].setAllComponentsColor(material);
 
@@ -131,15 +130,18 @@ export default {
           viewer.updateDisplay();
           console.log("finish");
         }, 9000);
-
       });
       // viewer.modelDebug = true;
 
       viewer2.loadModels([id, model1, m9, m8], true).then((lightModels2) => {
         //////////////////// about scene  ////////////////////
         setTimeout((scene) => {
-          viewer2.camera.position = new Float64Array([37993.926, 38889.343, 3240.845]);
-          viewer2.camera.target = new Float64Array([37991.186, 39417.579, 3073.291]);
+          viewer2.camera.position = new Float64Array([
+            37993.926, 38889.343, 3240.845,
+          ]);
+          viewer2.camera.target = new Float64Array([
+            37991.186, 39417.579, 3073.291,
+          ]);
           viewer2.camera.up = new Float64Array([-0.002, 0.302, 0.953]);
           viewer2.camera.setField(554.132, 554.132);
           viewer2.fitWorld();
@@ -150,8 +152,7 @@ export default {
         // let moveObjId1 = "QMD+M+4G+HYD+XDRA01+EL002";
         // let moveObjId2 = "QMD+M+4G+HYD+XDRA01+EL003";
 
-
-        let material2 = new BimAir.Material(viewer2, 'test2');
+        let material2 = new BimAir.Material(viewer2, "test2");
         material2.setColor(127, 0, 0, 1);
         lightModels2[1].setAllComponentsColor(material2);
 
@@ -197,7 +198,6 @@ export default {
           viewer2.updateDisplay();
           console.log("finish!");
         }, 10500);
-
       });
 
       // setTimeout(() => {

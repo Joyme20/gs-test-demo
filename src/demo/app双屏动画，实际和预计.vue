@@ -14,7 +14,7 @@ import Vue from "vue";
 // import "../public/js/ViewerWrapper.css";
 
 import BimAir from "gs-bim-air";
-import "gs-bim-air/lib/BimAir.css";
+// import "gs-bim-air/lib/BimAir.css";;
 // eslint-disable-next-line
 Vue.use(BimAir.ViewerWrapper);
 
@@ -29,7 +29,7 @@ export default {
         (bb[0] + bb[3]) / 2,
         (bb[1] + bb[4]) / 2,
         (bb[2] + bb[5]) / 2,
-      ])
+      ]);
       let p0 = new BimAir.Longan.Point();
       p0[0] = center[0];
       p0[1] = center[1];
@@ -44,12 +44,18 @@ export default {
       points.push(p1);
 
       // viewer.process.animationManager.drawStraight(viewer, points);
-      let animationId = viewer.process.animationManager.objectRoamWithoutRotate(viewer, moveSegmentObject, points, roamTime, 0, () => {
-        console.log(viewer, objectID);
-      });
+      let animationId = viewer.process.animationManager.objectRoamWithoutRotate(
+        viewer,
+        moveSegmentObject,
+        points,
+        roamTime,
+        0,
+        () => {
+          console.log(viewer, objectID);
+        }
+      );
       return animationId;
-    }
-
+    },
   },
   data: () => {
     return {
@@ -84,14 +90,14 @@ export default {
       let viewer2 = new BimAir.Viewer(options2);
       let id = "62ba4f263a591513fe17d896";
       let model1 = "62ba4f503a591513fe17d930"; // 4肘管模型Id
-      let model2 = "62ba4f473a591513fe17d919";   //  4锥管模型Id
-      let model3 = "62ba4f5b3a591513fe17d93d";   // 4蜗壳
-      let model4 = "62ba4f393a591513fe17d8fe";   // 4座环
-      let model5 = "62ba4f5f3a591513fe17d941";   // 4机坑里衬
-      let m6 = "62c2858503225b3400faa7cc";  // 3座环
-      let m7 = "62c2857e03225b3400faa7a9";  // 3肘管
-      let m8 = "62c2857b03225b3400faa798";  // 3#蜗壳FA
-      let m9 = "62c2856203225b3400faa74e";  // 2座环
+      let model2 = "62ba4f473a591513fe17d919"; //  4锥管模型Id
+      let model3 = "62ba4f5b3a591513fe17d93d"; // 4蜗壳
+      let model4 = "62ba4f393a591513fe17d8fe"; // 4座环
+      let model5 = "62ba4f5f3a591513fe17d941"; // 4机坑里衬
+      let m6 = "62c2858503225b3400faa7cc"; // 3座环
+      let m7 = "62c2857e03225b3400faa7a9"; // 3肘管
+      let m8 = "62c2857b03225b3400faa798"; // 3#蜗壳FA
+      let m9 = "62c2856203225b3400faa74e"; // 2座环
 
       let material = new BimAir.Material(viewer, "test");
       material.setColor(127, 250, 0, 1);
@@ -99,8 +105,12 @@ export default {
       viewer.loadModels([id, model1], true).then((lightModels) => {
         //////////////////// about scene  ////////////////////
         setTimeout(() => {
-          viewer.camera.position = new Float64Array([379633.85, 39084.71, 3129.943]);
-          viewer.camera.target = new Float64Array([380036.613, 39459.857, 3066.088]);
+          viewer.camera.position = new Float64Array([
+            379633.85, 39084.71, 3129.943,
+          ]);
+          viewer.camera.target = new Float64Array([
+            380036.613, 39459.857, 3066.088,
+          ]);
           viewer.camera.up = new Float64Array([0.084, 0.079, 0.993]);
           viewer.camera.setField(554.132, 554.132);
           viewer.fitWorld();
@@ -108,12 +118,21 @@ export default {
         lightModels[0].setAllComponentsIsolation(true);
         lightModels[1].setAllComponentsVisible(false);
 
-
         let roamTime = 4;
         let moveObjId1 = "QMD+M+4G+HYD+XDRA01+EL002";
-        let animationId1 = this.getAnimation(viewer, lightModels[1], moveObjId1, roamTime);  //animation 1
+        let animationId1 = this.getAnimation(
+          viewer,
+          lightModels[1],
+          moveObjId1,
+          roamTime
+        ); //animation 1
         let moveObjId2 = "QMD+M+4G+HYD+XDRA01+EL003";
-        let animationId2 = this.getAnimation(viewer, lightModels[1], moveObjId2, roamTime);  //animation 2
+        let animationId2 = this.getAnimation(
+          viewer,
+          lightModels[1],
+          moveObjId2,
+          roamTime
+        ); //animation 2
 
         setTimeout((start1) => {
           lightModels[1].setComponentsVisible([moveObjId1], true);
@@ -122,7 +141,6 @@ export default {
           viewer.process.animationManager.run([animationId1]);
         }, 2000);
 
-
         setTimeout((start2) => {
           lightModels[1].setComponentsVisible([moveObjId2], true);
           lightModels[1].setComponentsColor([moveObjId1], null);
@@ -130,14 +148,17 @@ export default {
           viewer.process.animationManager.stopAnime(animationId1);
           viewer.process.animationManager.run([animationId2]);
         }, 6500);
-      
       });
       // viewer.modelDebug = true;
 
       viewer2.loadModels([id, model1, m9, m8], true).then((lightModels2) => {
         setTimeout(() => {
-          viewer2.camera.position = new Float64Array([379633.85, 39084.71, 3129.943]);
-          viewer2.camera.target = new Float64Array([380036.613, 39459.857, 3066.088]);
+          viewer2.camera.position = new Float64Array([
+            379633.85, 39084.71, 3129.943,
+          ]);
+          viewer2.camera.target = new Float64Array([
+            380036.613, 39459.857, 3066.088,
+          ]);
           viewer2.camera.up = new Float64Array([0.084, 0.079, 0.993]);
           viewer2.camera.setField(554.132, 554.132);
           viewer2.fitWorld();
@@ -147,10 +168,20 @@ export default {
 
         let roamTime2 = 3;
         let moveObjId_1 = "QMD+M+4G+HYD+XDRA01+EL002";
-        let animationId_1 = this.getAnimation(viewer2, lightModels2[1], moveObjId_1, roamTime2);  // animation 1
+        let animationId_1 = this.getAnimation(
+          viewer2,
+          lightModels2[1],
+          moveObjId_1,
+          roamTime2
+        ); // animation 1
 
         let moveObjId_2 = "QMD+M+4G+HYD+XDRA01+EL003";
-        let animationId_2 = this.getAnimation(viewer2, lightModels2[1], moveObjId_2, roamTime2);  // animation 2
+        let animationId_2 = this.getAnimation(
+          viewer2,
+          lightModels2[1],
+          moveObjId_2,
+          roamTime2
+        ); // animation 2
 
         setTimeout((start1) => {
           lightModels2[1].setComponentsVisible([moveObjId_1], true);
@@ -158,14 +189,11 @@ export default {
           viewer2.process.animationManager.run([animationId_1]);
         }, 2000);
 
-
         setTimeout((start2) => {
           lightModels2[1].setComponentsVisible([moveObjId_2], true);
           viewer2.process.animationManager.stopAnime(animationId_1);
           viewer2.process.animationManager.run([animationId_2]);
         }, 5500);
-
-
       });
 
       // setTimeout(() => {

@@ -13,18 +13,15 @@ import Vue from "vue";
 // import BimAir from "../public/js/ViewerWrapper.umd.js";
 // import "../public/js/ViewerWrapper.css";
 
-
 import BimAir from "gs-bim-air";
-import "gs-bim-air/lib/BimAir.css";
+// import "gs-bim-air/lib/BimAir.css";;
 // eslint-disable-next-line
 Vue.use(BimAir.ViewerWrapper);
 
 export default {
   name: "App",
   components: {},
-  methods: {
-
-  },
+  methods: {},
   data: () => {
     return {
       isShow: true,
@@ -58,14 +55,14 @@ export default {
       // let viewer2 = new BimAir.Viewer(options2);
       let id = "62ba4f263a591513fe17d896";
       let model1 = "62ba4f503a591513fe17d930"; // 4肘管模型Id
-      let model2 = "62ba4f473a591513fe17d919";   //  4锥管模型Id
-      let model3 = "62ba4f5b3a591513fe17d93d";   // 4蜗壳
-      let model4 = "62ba4f393a591513fe17d8fe";   // 4座环
-      let model5 = "62ba4f5f3a591513fe17d941";   // 4机坑里衬
-      let m6 = "62c2858503225b3400faa7cc";  // 3座环
-      let m7 = "62c2857e03225b3400faa7a9";  // 3肘管
-      let m8 = "62c2857b03225b3400faa798";  // 3#蜗壳FA
-      let m9 = "62c2856203225b3400faa74e";  // 2座环
+      let model2 = "62ba4f473a591513fe17d919"; //  4锥管模型Id
+      let model3 = "62ba4f5b3a591513fe17d93d"; // 4蜗壳
+      let model4 = "62ba4f393a591513fe17d8fe"; // 4座环
+      let model5 = "62ba4f5f3a591513fe17d941"; // 4机坑里衬
+      let m6 = "62c2858503225b3400faa7cc"; // 3座环
+      let m7 = "62c2857e03225b3400faa7a9"; // 3肘管
+      let m8 = "62c2857b03225b3400faa798"; // 3#蜗壳FA
+      let m9 = "62c2856203225b3400faa74e"; // 2座环
       let aboutCamera = {
         position: [380545.319, 39418.008, 3073.72],
         target: [379991.188, 39417.578, 3073.291],
@@ -73,12 +70,11 @@ export default {
         field: 554.132,
       };
 
-          // position： 380545.319, 39418.008, 3073.72
-          // target： 379991.188, 39417.578, 3073.291
-          // up： -0.001, -0.285, 0.959
-          // width： 554.132
-          // height： 554.132
-
+      // position： 380545.319, 39418.008, 3073.72
+      // target： 379991.188, 39417.578, 3073.291
+      // up： -0.001, -0.285, 0.959
+      // width： 554.132
+      // height： 554.132
 
       viewer.loadModels([id, model1], true).then((lightModels) => {
         viewer.camera.position = aboutCamera.position;
@@ -94,21 +90,28 @@ export default {
         viewer.isolationManager.material.setColor(127, 250, 0, 0.5);
         let childNodes1 = object1.treeNodeOject.childNodes;
         // console.log(childNodes1,"11111111111111111", childNodes1.length);
-        let object_temp = viewer.structureTreeManager.getTreeNodesByName('MED-C-01-CF-ZCF-002-005(5#机组)');
-        let object_temp2 = viewer.structureTreeManager.getTreeNodesByName('3D形状00244356 A.1');
-         console.log(object_temp);
-         // console.log(object_temp.items[0]);
-        
+        let object_temp = viewer.structureTreeManager.getTreeNodesByName(
+          "MED-C-01-CF-ZCF-002-005(5#机组)"
+        );
+        let object_temp2 =
+          viewer.structureTreeManager.getTreeNodesByName("3D形状00244356 A.1");
+        console.log(object_temp);
+        // console.log(object_temp.items[0]);
+
         // let style = viewer.isolationManager.isolationStyleSegment;
         // console.log(style);
 
-
         // viewer.isolationManager.isolation([childNodes1[0].childNodes[8]]);
         // viewer.isolationManager.isolation([object_temp.items[0], childNodes1[0].childNodes[8]]);
-        viewer.isolationManager.isolation([object1,lightModels[0].segmentObject]);
+        viewer.isolationManager.isolation([
+          object1,
+          lightModels[0].segmentObject,
+        ]);
         viewer.updateDisplay();
         // lightModels[1].setComponentsIsolation([objectID1], true);
-        let t = viewer.isolationManager.isIsolation(childNodes1[0].childNodes[8]);
+        let t = viewer.isolationManager.isIsolation(
+          childNodes1[0].childNodes[8]
+        );
         console.log(t);
         console.log("1");
         // viewer.isolationManager.isolationInvert([object_temp.items[0], childNodes1[0].childNodes[8]]);
@@ -119,17 +122,12 @@ export default {
           viewer.isolationManager.clearIsolation([object1]);
           //viewer.isolationManager.clearAllIsolation();
           viewer.updateDisplay();
-          console.log('4s');
+          console.log("4s");
         }, 4000);
 
-
         // console.log(viewer.isolationManager.isolationDatas);
-
-        
-
       });
       // viewer.modelDebug = true;
-
 
       // setTimeout(() => {
       //   viewer2.dispose();

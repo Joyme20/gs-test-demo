@@ -145,7 +145,7 @@ export default class Index extends Vue {
 
   mounted() {
     // this.currentComponent = this.components["设置视角test"];
-    this.currentComponent = this.components["相机设置视角"];
+    this.currentComponent = this.components["通过RO的Id加载模型"];
     // this.currentComponent = this.components["isolation"];
 
     return;

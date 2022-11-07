@@ -32,20 +32,21 @@ export default class Index extends Vue {
         true;
       this.viewer = viewer;
 
-      viewer
-        .loadModels(
-          [
-            {
-              // id: ,
-              // version: 1,
-              id: this.$route.query.modelId as string,
-              version: Number(this.$route.query.version),
-            },
-          ],
-          true,
-          true
-        )
-        .then((lightModels) => {});
+      // viewer
+      //   .loadModels(
+      //     [
+      //       {
+      //         // id: ,
+      //         // version: 1,
+      //         id: this.$route.query.modelId as string,
+      //         version: Number(this.$route.query.version),
+      //       },
+      //     ],
+      //     true,
+      //     true
+      //   )
+      //   .then((lightModels) => {});
+      viewer.loadRenderObjects(["6ddabd40-4492-42f0-a16e-b9c0f9bb98b9"]);
     });
   }
 
