@@ -14,6 +14,7 @@ import Vue from "vue";
 // import "../public/js/ViewerWrapper.css";
 
 import BimAir from "gs-bim-air";
+import { fail } from "assert";
 // import "gs-bim-air/lib/BimAir.css";;
 // eslint-disable-next-line
 Vue.use(BimAir.ViewerWrapper);
@@ -50,7 +51,7 @@ export default {
       fileService: "http://8.134.85.254:9040/api",
     };
 
-    BimAir.Loader({ isShareArrayBuffer: true }).then(() => {
+    BimAir.Loader({ isShareArrayBuffer: false }).then(() => {
       let viewer = new BimAir.Viewer(options);
       let viewer2 = new BimAir.Viewer(options2);
       let id = "62ba4f263a591513fe17d896";
@@ -89,11 +90,12 @@ export default {
 
         let objcet1 = lightModels[1].segmentObject;
         objcet1.setMaterial(material1);
-
         lightModels[1].setComponentsColor([moveObjId1, moveObjId2], material2);
+
+        viewer.updateDisplay();
         // lightModels[1].setComponentsColor([moveObjId2], null);
-        objcet1.setMaterial(null);
-        lightModels[1].setComponentsColor([moveObjId2], null);
+        // objcet1.setMaterial(null);
+        // lightModels[1].setComponentsColor([moveObjId2], null);
       });
       // viewer.modelDebug = true;
 
