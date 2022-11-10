@@ -36,32 +36,34 @@ export default class Index extends Vue {
       //   true;
       this.viewer = viewer;
 
-      viewer
-        .loadModels(
-          [
-            {
-              // id: ,
-              // version: 1,
-              id: "63355161317218508c163264",
-              version: 3,
-            },
-          ],
-          true,
-          true
-        )
-        .then((lightModels) => {
-          let seg = viewer.utilitySegment.subsegment("text");
-          seg.insertVectorText(
-            "文字测试Abc123",
-            [5, 5, 5],
-            [1, 0, 0],
-            [0, 1, 0],
-            16
-          );
-          seg.renderingOptions.cullBackFace = false; //双面绘制
+      // viewer
+      //   .loadModels(
+      //     [
+      //       {
+      //         // id: ,
+      //         // version: 1,
+      //         id: "63355161317218508c163264",
+      //         version: 3,
+      //       },
+      //     ],
+      //     true,
+      //     true
+      //   )
+      //   .then((lightModels) => {
+      // viewer.utilitySegment.insertMarker([0, 0, 0]);
 
-          viewer.updateDisplay();
-        });
+      let seg = viewer.utilitySegment.subsegment("text");
+      seg.insertVectorText(
+        "文字测试Abc123",
+        [5, 5, 5],
+        [1, 0, 0],
+        [0, 1, 0],
+        16
+      );
+      seg.renderingOptions.cullBackFace = false; //双面绘制
+
+      viewer.updateDisplay();
+      // });
     });
   }
 

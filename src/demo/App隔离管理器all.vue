@@ -25,6 +25,7 @@ export default {
   data: () => {
     return {
       isShow: true,
+      viewer: null,
     };
   },
 
@@ -52,6 +53,7 @@ export default {
 
     BimAir.Loader({ isShareArrayBuffer: true }).then(() => {
       let viewer = new BimAir.Viewer(options);
+      this.viewer = viewer;
       // let viewer2 = new BimAir.Viewer(options2);
       let id = "62ba4f263a591513fe17d896";
       let model1 = "62ba4f503a591513fe17d930"; // 4肘管模型Id
@@ -158,6 +160,9 @@ export default {
       // let svg = run.glyphs[0].path;
       // console.log("svg-----------", svg);
     });
+  },
+  beforeDestroy() {
+    this.viewer.process.dispose();
   },
 };
 </script>

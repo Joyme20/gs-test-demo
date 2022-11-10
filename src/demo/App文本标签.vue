@@ -25,6 +25,7 @@ export default {
   data: () => {
     return {
       isShow: true,
+      viewer: null,
     };
   },
 
@@ -52,6 +53,7 @@ export default {
 
     BimAir.Loader({ isShareArrayBuffer: true }).then(() => {
       let viewer = new BimAir.Viewer(options);
+      this.viewer = viewer;
       // let viewer2 = new BimAir.Viewer(options2);
       ////////////////////////  med  ////////////////////////
       let model1 = "63086634b15c844749906303";
@@ -153,6 +155,9 @@ export default {
         viewer.updateDisplay();
       });
     });
+  },
+  beforeDestroy() {
+    this.viewer.process.dispose();
   },
 };
 </script>

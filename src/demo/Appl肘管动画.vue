@@ -96,6 +96,7 @@ export default {
   data: () => {
     return {
       isShow: true,
+      viewer: null,
     };
   },
 
@@ -127,6 +128,7 @@ export default {
 
     BimAir.Loader({ isShareArrayBuffer: true }).then(() => {
       let viewer = new BimAir.Viewer(options);
+      this.viewer = viewer;
       // let viewer2 = new BimAir.Viewer(options2);
 
       viewer.loadModels([id, model1], true).then((lightModels) => {
@@ -180,6 +182,9 @@ export default {
         // let animationId1 = this.getAnimation(viewer, lightModels[1], id, roamTime);
       });
     });
+  },
+  beforeDestroy() {
+    this.viewer.process.dispose();
   },
 };
 </script>

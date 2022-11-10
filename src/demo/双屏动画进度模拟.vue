@@ -203,6 +203,7 @@ export default {
   },
   beforeDestroy() {
     this.viewer.process.dispose();
+    this.viewer2.process.dispose();
   },
 };
 </script>
