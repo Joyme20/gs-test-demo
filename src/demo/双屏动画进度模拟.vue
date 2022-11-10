@@ -118,6 +118,7 @@ export default {
         //viewer.fitWorld();
 
         lightModels[0].setAllComponentsIsolation(true);
+        lightModels[0].setAllComponentsVisible(false);
         lightModels[1].setAllComponentsVisible(false);
 
         let roamTime = 4;
