@@ -2,7 +2,7 @@ import { Component, Vue } from "vue-property-decorator";
 // import { Options } from "../../../packages/bimAir/src/gsDevFx/options";
 
 import BimAir, { Viewer } from "gs-bim-air";
-import "gs-bim-air/lib/BimAir.css";
+// import "gs-bim-air/lib/BimAir.css";
 
 import { PathType } from "gs-bim-air";
 
