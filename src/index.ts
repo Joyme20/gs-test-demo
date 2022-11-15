@@ -2,6 +2,7 @@ import { Component, Vue } from "vue-property-decorator";
 // import { Options } from "../../../packages/bimAir/src/gsDevFx/options";
 
 import BimAir, { Viewer } from "gs-bim-air";
+import "gs-bim-air/lib/BimAir.css";
 
 import { PathType } from "gs-bim-air";
 
@@ -152,7 +153,7 @@ export default class Index extends Vue {
     BimAir.Loader({
       // key: "681fe1e77ec44cd88af1620c1b2bffc2",
       // secret: "NjgxZmUxZTc3ZWM0NGNkODhhZjE2MjBjMWIyYmZmYzI=",
-      isShareArrayBuffer: false,
+      isShareArrayBuffer: true,
     }).then(() => {
       let viewer = new BimAir.Viewer(this.options);
       // setTimeout(() => {
