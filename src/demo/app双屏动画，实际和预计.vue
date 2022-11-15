@@ -60,8 +60,8 @@ export default {
   data: () => {
     return {
       isShow: true,
-      viewer:null,
-      viewer2:null
+      viewer: null,
+      viewer2: null,
     };
   },
 
@@ -90,8 +90,8 @@ export default {
     BimAir.Loader({ isShareArrayBuffer: true }).then(() => {
       let viewer = new BimAir.Viewer(options);
       let viewer2 = new BimAir.Viewer(options2);
-      this.viewer = viewer
-      this.viewer2 = viewer2
+      this.viewer = viewer;
+      this.viewer2 = viewer2;
       let id = "62ba4f263a591513fe17d896";
       let model1 = "62ba4f503a591513fe17d930"; // 4肘管模型Id
       let model2 = "62ba4f473a591513fe17d919"; //  4锥管模型Id
@@ -230,10 +230,10 @@ export default {
       // console.log("svg-----------", svg);
     });
   },
-   beforeDestroy() {
-    this.viewer.process.dispose();
-    this.viewer2.process.dispose();
-  }
+  // beforeDestroy() {
+  //   this.viewer.process.dispose();
+  //   this.viewer2.process.dispose();
+  // }
 };
 </script>
 

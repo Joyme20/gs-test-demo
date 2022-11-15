@@ -42,16 +42,16 @@ export default class Index extends Vue {
               version: Number(this.$route.query.version),
             },
           ],
-          true,
           true
+          // true
         )
         .then((lightModels) => {});
     });
   }
 
-  beforeDestroy() {
-    this.viewer.process.dispose();
-  }
+  // beforeDestroy() {
+  //   this.viewer.process.dispose();
+  // }
 }
 </script>
 

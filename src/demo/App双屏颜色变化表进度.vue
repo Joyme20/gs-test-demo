@@ -235,10 +235,10 @@ export default {
       console.log("svg-----------", svg);
     });
   },
-  beforeDestroy() {
-    this.viewer.process.dispose();
-    this.viewer2.process.dispose();
-  },
+  // beforeDestroy() {
+  //   this.viewer.process.dispose();
+  //   this.viewer2.process.dispose();
+  // },
 };
 </script>
 

@@ -161,9 +161,9 @@ export default {
       // console.log("svg-----------", svg);
     });
   },
-  beforeDestroy() {
-    this.viewer.process.dispose();
-  },
+  // beforeDestroy() {
+  //   this.viewer.process.dispose();
+  // },
 };
 </script>
 

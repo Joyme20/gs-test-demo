@@ -124,9 +124,9 @@ export default class Index extends Vue {
     });
   }
 
-  beforeDestroy() {
-    this.viewer.process.dispose();
-  }
+  // beforeDestroy() {
+  //   this.viewer.process.dispose();
+  // }
 }
 </script>
 
