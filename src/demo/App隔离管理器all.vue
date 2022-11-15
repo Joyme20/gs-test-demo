@@ -189,5 +189,6 @@ export default {
   top: 0;
   bottom: 0; */
   display: flex;
+  position: relative;
 }
 </style>

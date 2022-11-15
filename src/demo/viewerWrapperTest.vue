@@ -9,6 +9,12 @@
 import { Component, Vue } from "vue-property-decorator";
 import BimAir, { Options, Viewer } from "gs-bim-air";
 
+// import BimAir, {
+//   Options,
+//   Viewer,
+// } from "../../../../../vue-ts-bimlight-platform/packages/bimAir/lib/BimAir.umd";
+// import "../../../../../vue-ts-bimlight-platform/packages/bimAir/lib/BimAir.css";
+
 Vue.use(BimAir.ViewerWrapper);
 
 @Component({
@@ -19,6 +25,8 @@ export default class Index extends Vue {
     elementId: "viewer",
     background: "linear-gradient(#e3fcfc, #f6ffff)",
     isShowLoading: true,
+    modelService: "https://static.graphicstone.com/modelApi",
+    fileService: "https://static.graphicstone.com/fileApi",
   };
 
   viewer: Viewer;
@@ -31,6 +39,11 @@ export default class Index extends Vue {
       viewer.instanceObjectSegment.renderingOptions.LogarithmicDepthBuffer =
         true;
       this.viewer = viewer;
+      console.log(
+        "this.viewer.isShareArrayBuffer",
+        this.viewer.isShareArrayBuffer
+      );
+      // viewer.isSharedArrayBuffer = true;
 
       viewer
         .loadModels(
@@ -38,8 +51,8 @@ export default class Index extends Vue {
             {
               // id: ,
               // version: 1,
-              id: this.$route.query.modelId as string,
-              version: Number(this.$route.query.version),
+              id: "6316b4783247112e1055f466",
+              version: 1,
             },
           ],
           true

@@ -19,6 +19,8 @@ export default class Index extends Vue {
     elementId: "viewer",
     background: "linear-gradient(#e3fcfc, #f6ffff)",
     isShowLoading: true,
+    modelService: "https://static.graphicstone.com/modelApi",
+    fileService: "https://static.graphicstone.com/fileApi",
   };
 
   viewer: Viewer;
