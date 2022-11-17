@@ -39,10 +39,10 @@ export default class Index extends Vue {
       viewer.instanceObjectSegment.renderingOptions.LogarithmicDepthBuffer =
         true;
       this.viewer = viewer;
-      console.log(
-        "this.viewer.isShareArrayBuffer",
-        this.viewer.isShareArrayBuffer
-      );
+      // console.log(
+      //   "this.viewer.isShareArrayBuffer",
+      //   this.viewer.isShareArrayBuffer
+      // );
       // viewer.isSharedArrayBuffer = true;
 
       viewer
