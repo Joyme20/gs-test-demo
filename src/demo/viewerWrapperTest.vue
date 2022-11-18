@@ -27,6 +27,8 @@ export default class Index extends Vue {
     isShowLoading: true,
     modelService: "https://static.graphicstone.com/modelApi",
     fileService: "https://static.graphicstone.com/fileApi",
+    // modelService: "https://8.134.85.254:9031/api",
+    // fileService: "https://8.134.85.254:9041/api",
   };
 
   viewer: Viewer;
@@ -51,7 +53,8 @@ export default class Index extends Vue {
             {
               // id: ,
               // version: 1,
-              id: "6316b4783247112e1055f466",
+              // id: "6316b4783247112e1055f466",
+              id: "63733d3290c45f53c7399c1c",
               version: 1,
             },
           ],
