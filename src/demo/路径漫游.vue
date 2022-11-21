@@ -83,7 +83,13 @@ export default class Index extends Vue {
       points,
       targets
     );
-    viewer.animationManager.pathRoam.run([animationId]);
+    let animationId2 = viewer.animationManager.pathRoam.addRoamPathAnime(
+      10,
+      points,
+      targets
+    );
+
+    viewer.animationManager.pathRoam.run([animationId], true);
 
     let camera = viewer.animationManager.pathRoam.getRoamPoint();
     console.log("camera", camera);
