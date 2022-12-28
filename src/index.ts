@@ -40,7 +40,7 @@ export default class Index extends Vue {
     // loaderUrl: "https://static.graphicstone.com",
     // modelService: "https://static.graphicstone.com/modelApi",
     // fileService: "https://static.graphicstone.com/fileApi",
-    background: "linear-gradient(#e3fcfc, #f6ffff)",
+    // // background: "linear-gradient(#e3fcfc, #f6ffff)",
     isShowLoading: true,
 
     toolbarVisible: {
@@ -127,7 +127,7 @@ export default class Index extends Vue {
     // modelService: "https://static.graphicstone.com/modelApi",
     // fileService: "https://static.graphicstone.com/fileApi",
     modelService: "http://111.44.214.189:8301", //玛尔挡模型服务
-    background: "linear-gradient(#e3fcfc, #f6ffff)",
+    // // background: "linear-gradient(#e3fcfc, #f6ffff)",
     isShowLoading: true,
 
     toolbarVisible: {

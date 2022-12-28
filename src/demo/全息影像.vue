@@ -8,7 +8,12 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import BimAir, { Options, Viewer } from "gs-bim-air";
-import { CommandPanoramaModelSelect, PanoramaObject, ProjectionType, Vector } from "gs-longan";
+import {
+  CommandPanoramaModelSelect,
+  PanoramaObject,
+  ProjectionType,
+  Vector,
+} from "gs-longan";
 import fileService from "gs-bim-air/api/file/fileService";
 import * as LonganCore from "gs-longan/longan/gs.viewer";
 
@@ -26,20 +31,20 @@ Vue.use(BimAir.ViewerWrapper);
 export default class Index extends Vue {
   options: Options = {
     elementId: "viewer",
-    background: "linear-gradient(#e3fcfc, #f6ffff)",
+    // background: "linear-gradient(#e3fcfc, #f6ffff)",
     isShowLoading: false,
     modelService: "https://static.graphicstone.com/modelApi",
     fileService: "https://static.graphicstone.com/fileApi",
     toolbarVisible: {
       leftToolbar: false,
       rightToolbar: false,
-      bottomToolbar: false
+      bottomToolbar: false,
     },
     components: {
       compass: {
-        visible: false
-      }
-    }
+        visible: false,
+      },
+    },
   };
 
   viewer: Viewer;
@@ -49,8 +54,10 @@ export default class Index extends Vue {
       isShareArrayBuffer: false,
     }).then(() => {
       let viewer = new BimAir.Viewer(this.options);
-      viewer.sceneSegment.camera.projection = ProjectionType.Orthographic; 
-      viewer.sceneSegment.renderingOptions.setCullingMaximumExtent(0).setViewFrustumCulling(false);
+      viewer.sceneSegment.camera.projection = ProjectionType.Orthographic;
+      viewer.sceneSegment.renderingOptions
+        .setCullingMaximumExtent(0)
+        .setViewFrustumCulling(false);
       this.viewer = viewer;
 
       let panoramaObject = new PanoramaObject();
@@ -62,7 +69,9 @@ export default class Index extends Vue {
         "6375b168dcc0567781358bad"
       );
       this.initPanorama(textureURL, panoramaObject);
-      this.viewer.process.commandManager.execute(new CommandPanoramaModelSelect());
+      this.viewer.process.commandManager.execute(
+        new CommandPanoramaModelSelect()
+      );
     });
   }
 

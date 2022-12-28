@@ -18,7 +18,7 @@ Vue.use(BimAir.ViewerWrapper);
 export default class Index extends Vue {
   options: Options = {
     elementId: "viewer",
-    background: "linear-gradient(#e3fcfc, #f6ffff)",
+    // background: "linear-gradient(#e3fcfc, #f6ffff)",
     isShowLoading: true,
     modelService: "https://8.134.85.254:9031/api",
     fileService: "https://8.134.85.254:9041/api",
