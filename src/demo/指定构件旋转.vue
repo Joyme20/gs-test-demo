@@ -15,12 +15,12 @@ Vue.use(BimAir.ViewerWrapper);
   components: {},
 })
 export default class Index extends Vue {
-  options: {
+  options = {
     // viewerType: "model",
-    elementId: "viewer";
+    elementId: "viewer",
 
-    modelService: "https://static.graphicstone.com/modelApi";
-    fileService: "https://static.graphicstone.com/fileApi";
+    modelService: "https://static.graphicstone.com/modelApi",
+    fileService: "https://static.graphicstone.com/fileApi",
     // background: "linear-gradient(#e3fcfc, #f6ffff)";
   };
 
